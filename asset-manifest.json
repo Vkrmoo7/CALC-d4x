@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/CALC-d4x/static/css/main.9d482f0b.css",
+    "main.js": "/CALC-d4x/static/js/main.674a55c8.js",
+    "index.html": "/CALC-d4x/index.html",
+    "main.9d482f0b.css.map": "/CALC-d4x/static/css/main.9d482f0b.css.map",
+    "main.674a55c8.js.map": "/CALC-d4x/static/js/main.674a55c8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9d482f0b.css",
+    "static/js/main.674a55c8.js"
+  ]
+}
