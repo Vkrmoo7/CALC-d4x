@@ -1,12 +1,15 @@
 // src/index.js
-import React from 'react';
-import ReactDOM from 'react-dom/client'; // React 18 uses ReactDOM.createRoot
-import './App.css'; // Assuming global styles are in index.css
-import App from './App';
 
-const root = ReactDOM.createRoot(document.getElementById('root')); // Create a root for rendering
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+import { ThemeProvider } from './components/ThemeContext'; // Adjust path as necessary
+import './index.css'; 
+// Ensure this line is included
+
+ReactDOM.render(
+    <ThemeProvider>
+        <App />
+    </ThemeProvider>,
+    document.getElementById('root')
 );

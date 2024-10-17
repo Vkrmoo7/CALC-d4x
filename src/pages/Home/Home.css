@@ -1,66 +1,128 @@
+/* General Home Styling */
 .home {
-    text-align: center;
-    padding: 20px;
-    background-color: #f9f9f9;
-  }
-  
-  h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-  }
-  
-  p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-  }
-  
-  .card-container {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  
-  .card {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: 250px;
-    text-align: center;
-    transition: transform 0.3s ease;
-  }
-  
-  .card:hover {
-    transform: translateY(-10px);
-  }
-  
-  .card img {
-    max-width: 100%;
-    border-radius: 10px;
-  }
-  
-  .card h2 {
-    font-size: 1.5rem;
-    margin-top: 10px;
-  }
-  
-  .card p {
-    font-size: 1rem;
-    color: #666;
-    margin-bottom: 20px;
-  }
-  
-  .use-now-btn {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .use-now-btn:hover {
-    background-color: #0056b3;
-  }
-  
+  text-align: center;
+  min-height: 100vh;
+  margin-top: 60px;
+  padding: 20px;
+  background-color: #f9f9f9; /* Light background */
+  color: var(--secondary-color); /* Default text color */
+}
+
+body.dark .home {
+  background-color: #222; /* Dark background */
+  color: #fff; /* Light text color */
+}
+
+/* Heading Styles */
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: var(--primary-color); /* Default heading color */
+}
+
+body.dark h1 {
+  color: #ffdd57; /* Light heading color for dark theme */
+}
+
+/* Paragraph Styles */
+p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: var(--text-color); /* Default paragraph color */
+}
+
+body.dark p {
+  color: #ddd; /* Light paragraph color for dark theme */
+}
+
+/* Card Container */
+.card-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Card Styles */
+.card {
+  background-color: #fff; /* Light card background */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 250px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+body.dark .card {
+  background-color: #444; /* Dark card background */
+  color: #fff; /* Light text color in card */
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+/* Card Image Styles */
+.card img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+/* Card Title Styles */
+.card h2 {
+  font-size: 1.5rem;
+  margin-top: 10px;
+  color: var(--primary-color); /* Default card title color */
+}
+
+body.dark .card h2 {
+  color: #ffdd57; /* Light card title color for dark theme */
+}
+
+/* Card Paragraph Styles */
+.card p {
+  font-size: 1rem;
+  color: var(--text-color); /* Default card paragraph color */
+}
+
+body.dark .card p {
+  color: #ddd; /* Light card paragraph color for dark theme */
+}
+
+/* Button Styles */
+.use-now-btn {
+  background-color: #007bff; /* Button background color */
+  color: white; /* Button text color */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s; /* Smooth background transition on hover */
+}
+
+body.dark .use-now-btn {
+  background-color: #0056b3; /* Dark theme button color */
+}
+
+.use-now-btn:hover {
+  background-color: #0056b3; /* Hover color */
+}
+
+body.dark .use-now-btn:hover {
+  background-color: #004494; /* Dark theme hover color */
+}
+
+/* Theme Variables */
+:root {
+  --primary-color: #333; /* Dark gray for light theme */
+  --secondary-color: #555; /* Medium gray for light theme */
+  --text-color: #666; /* Default paragraph color */
+}
+
+/* Dark Theme */
+body.dark {
+  --primary-color: #f4f4f4; /* Light gray for dark theme */
+  --secondary-color: #ddd; /* Light text for dark theme */
+  --text-color: #ddd; /* Light text color */
+}

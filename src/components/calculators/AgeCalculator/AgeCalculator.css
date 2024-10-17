@@ -1,35 +1,100 @@
+/* Age Calculator Container */
 .age-calculator-container {
-    max-width: 400px;
-    margin: 0 auto;
-    text-align: center;
-  }
-  
-  .input-section {
-    margin-bottom: 20px;
-  }
-  
-  .date-selectors {
-    display: flex;
-    justify-content: space-between;
-    margin: 10px 0;
-  }
-  
-  select {
-    width: 30%;
-    padding: 10px;
-    margin-right: 5px;
-  }
-  
-  button {
-    padding: 10px 15px;
-    cursor: pointer;
-  }
-  
-  .error-message {
-    color: red;
-  }
-  
-  .result-container {
-    margin-top: 20px;
-  }
-  
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Input Section */
+.input-section {
+  margin-bottom: 20px;
+}
+
+/* Date Selectors */
+.date-selectors {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+select {
+  width: 30%;
+  padding: 10px;
+  margin-right: 5px;
+  background-color: #fff; /* Light background for light theme */
+  color: #333; /* Dark text for light theme */
+  border: 1px solid #ccc; /* Light border */
+  border-radius: 4px; /* Rounded corners */
+}
+
+body.dark select {
+  background-color: #444; /* Dark background for dark theme */
+  color: #ddd; /* Light text for dark theme */
+  border: 1px solid #666; /* Darker border */
+}
+
+button {
+  padding: 10px 15px;
+  cursor: pointer;
+  background-color: #007bff; /* Button background color */
+  color: white; /* Button text color */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s; /* Smooth transition */
+}
+
+body.dark button {
+  background-color: #0056b3; /* Dark theme button color */
+}
+
+button:hover {
+  background-color: #0056b3; /* Hover color for light theme */
+}
+
+body.dark button:hover {
+  background-color: #004494; /* Dark theme hover color */
+}
+
+/* Error Message */
+.error-message {
+  color: red;
+}
+
+/* Result Container */
+.result-container {
+  margin-top: 20px;
+  background-color: #f9f9f9; /* Light background */
+  padding: 15px; /* Padding for result display */
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+body.dark .result-container {
+  background-color: #333; /* Dark background for results */
+  color: #fff; /* Light text for results */
+}
+
+/* Additional Theme Management for Overall Layout */
+body {
+  font-family: 'Arial', sans-serif; /* Font family for the whole body */
+}
+
+/* Ensure global theme consistency */
+body.light {
+  background-color: #f4f4f4; /* Light background for light theme */
+  color: #333; /* Dark text for light theme */
+}
+
+body.dark {
+  background-color: #181818; /* Dark background for dark theme */
+  color: #ddd; /* Light text for dark theme */
+}
+
+/* Error Handling for the Overall Layout */
+body.light .error-message {
+  color: red; /* Red error color for light theme */
+}
+
+body.dark .error-message {
+  color: #ff9999; /* Softer red for dark theme */
+}

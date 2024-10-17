@@ -1,129 +1,182 @@
+/* Define CSS variables for theme colors */
+:root {
+  --light-bg-color: #f4f4f4;
+  --dark-bg-color: #333;
+  --light-text-color: #333;
+  --dark-text-color: #f5f5f5;
+  --light-card-bg: #fff;
+  --dark-card-bg: #444;
+  --primary-btn-bg: #007bff;
+  --dark-primary-btn-bg: #0056b3;
+  --secondary-btn-bg: #dc3545;
+  --dark-secondary-btn-bg: #c82333;
+}
+
+/* General container styles */
 .bmi-calculator-container {
-    background-color: #f4f4f4;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    max-width: 1000px;
-    margin: 0 auto;
-    text-align: center;
-  }
-  
-  h2 {
-    margin-bottom: 1.5rem;
-    font-size: 24px;
-    color: #333;
-  }
-  
+  background-color: var(--light-bg-color); /* Light theme background */
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+  transition: background-color 0.3s ease; /* Smooth transition for theme */
+}
+
+body.dark .bmi-calculator-container {
+  background-color: var(--dark-bg-color); /* Dark theme background */
+}
+
+/* Header styles */
+h2 {
+  margin-bottom: 1.5rem;
+  font-size: 24px;
+  color: var(--light-text-color); /* Light theme text color */
+  transition: color 0.3s ease;
+}
+
+body.dark h2 {
+  color: var(--dark-text-color); /* Dark theme text color */
+}
+
+/* Calculator content styles */
+.bmi-calculator-content {
+  display: flex;
+  flex-direction: column; /* Change to column for small screens */
+  justify-content: center;
+}
+
+/* Input section and output section styles */
+.input-section, .output-section {
+  flex-basis: 100%; /* Use full width */
+  padding: 1rem;
+  margin-bottom: 1rem; /* Add spacing between sections */
+}
+
+.input-section {
+  background-color: var(--light-card-bg); /* Light theme card background */
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+body.dark .input-section {
+  background-color: var(--dark-card-bg); /* Dark theme card background */
+}
+
+/* Input container styles */
+.input-container {
+  margin-bottom: 1rem;
+}
+
+.input-container label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: var(--light-text-color); /* Light theme text color */
+}
+
+body.dark .input-container label {
+  color: var(--dark-text-color); /* Dark theme text color */
+}
+
+.input-container input,
+.input-container select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/* Button container and button styles */
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Allow buttons to wrap on small screens */
+}
+
+button {
+  padding: 0.5rem 1rem;
+  background-color: var(--primary-btn-bg); /* Primary button color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  flex: 1; /* Make buttons take equal space */
+  margin: 0.5rem; /* Add margin around buttons */
+  transition: background-color 0.3s ease;
+}
+
+body.dark button {
+  background-color: var(--dark-primary-btn-bg); /* Dark theme button color */
+}
+
+button.reset-btn {
+  background-color: var(--secondary-btn-bg); /* Secondary button (Reset) */
+}
+
+body.dark button.reset-btn {
+  background-color: var(--dark-secondary-btn-bg); /* Dark theme reset button */
+}
+
+/* Button hover styles */
+button:hover {
+  background-color: var(--dark-primary-btn-bg);
+}
+
+button.reset-btn:hover {
+  background-color: var(--dark-secondary-btn-bg);
+}
+
+/* Result and BMI category styles */
+.result-container {
+  margin-bottom: 1.5rem;
+}
+
+.bmi-category {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+/* Error message styles */
+.error-message {
+  color: red;
+}
+
+/* Output section styles */
+.output-section {
+  text-align: center;
+}
+
+.output-section > div {
+  margin-bottom: 2rem;
+}
+
+/* Media Queries for Responsiveness */
+@media (min-width: 600px) {
   .bmi-calculator-content {
-    display: flex;
-    flex-direction: column; /* Change to column for small screens */
-    justify-content: center;
+    flex-direction: row; /* Switch back to row layout for larger screens */
   }
-  
+
   .input-section, .output-section {
-    flex-basis: 100%; /* Use full width */
-    padding: 1rem;
-    margin-bottom: 1rem; /* Add spacing between sections */
+    flex-basis: 48%; /* Use two columns on larger screens */
   }
-  
-  .input-section {
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 1.5rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 500px) {
+  h2 {
+    font-size: 20px; /* Smaller font size for mobile */
   }
-  
-  .input-container {
-    margin-bottom: 1rem;
-  }
-  
-  .input-container label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-  }
-  
+
   .input-container input,
   .input-container select {
-    width: 100%;
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    font-size: 14px; /* Smaller input font size */
   }
-  
-  .button-container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap; /* Allow buttons to wrap on small screens */
-  }
-  
+
   button {
-    padding: 0.5rem 1rem;
-    background-color: #007bff;
-    color: rgb(5, 5, 5);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    flex: 1; /* Make buttons take equal space */
-    margin: 0.5rem; /* Add margin around buttons */
+    padding: 0.5rem; /* Smaller button padding */
   }
-  
-  button.reset-btn {
-    background-color: #dc3545;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
-  button.reset-btn:hover {
-    background-color: #c82333;
-  }
-  
-  .result-container {
-    margin-bottom: 1.5rem;
-  }
-  
-  .bmi-category {
-    font-size: 1.2rem;
-    color: #555;
-  }
-  
-  .error-message {
-    color: red;
-  }
-  
-  .output-section {
-    text-align: center;
-  }
-  
-  .output-section > div {
-    margin-bottom: 2rem;
-  }
-  
-  /* Media Queries for Responsiveness */
-  @media (min-width: 600px) {
-    .bmi-calculator-content {
-      flex-direction: row; /* Switch back to row layout for larger screens */
-    }
-  
-    .input-section, .output-section {
-      flex-basis: 48%; /* Use two columns on larger screens */
-    }
-  }
-  
-  @media (max-width: 500px) {
-    h2 {
-      font-size: 20px; /* Smaller font size for mobile */
-    }
-  
-    .input-container input,
-    .input-container select {
-      font-size: 14px; /* Smaller input font size */
-    }
-  
-    button {
-      padding: 0.5rem; /* Smaller button padding */
-    }
-  }
-  
+}

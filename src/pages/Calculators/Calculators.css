@@ -1,25 +1,36 @@
 /* Dashboard container */
 .dashboard-container {
     display: flex;
-    height: 100vh;
+    height: calc(100vh - 60px); /* Adjust height considering the navbar */
     width: 100%;
     overflow: hidden;
     font-family: 'Arial', sans-serif;
+    margin-top: 60px; /* Space for the navbar */
+    background-color: #f4f4f4; /* Light theme background */
+}
+
+body.dark .dashboard-container {
+    background-color: #181818; /* Dark background for the dashboard */
 }
 
 /* Sidebar styles */
 .sidebar {
-    background-color: #333;
+    background-color: #3a3a3a; /* Default sidebar background */
     width: 250px; /* Default width for desktop */
     padding: 1rem;
-    color: white;
+    color: #ffffff; /* Default text color */
     position: relative;
     transition: width 0.3s ease;
     z-index: 2;
+    height: calc(100vh - 60px); /* Adjust height considering the navbar */
+}
+
+body.dark .sidebar {
+    background-color: #2c2c2c; /* Darker sidebar background */
 }
 
 .sidebar.active {
-    width: 60px; /* Collapsed width */
+    width: 80px; /* Collapsed width */
 }
 
 .sidebar h2 {
@@ -41,20 +52,19 @@
 .toggle-button {
     background-color: transparent;
     border: none;
-    color: white;
+    color: #ffffff; /* Default button text color */
     font-size: 1.8rem;
     cursor: pointer;
     position: absolute;
     top: 1rem;
     right: -40px; /* Position outside sidebar */
-    background: #444;
     padding: 10px;
     border-radius: 5px;
     transition: background-color 0.3s ease;
 }
 
 .toggle-button:hover {
-    background-color: #555; /* Button hover effect */
+    background-color: #505050; /* Button hover effect */
 }
 
 /* Calculator list styles */
@@ -72,7 +82,7 @@
 
 .calculator-list a {
     text-decoration: none;
-    color: white;
+    color: #ffffff; /* Default link color */
     font-size: 1.2rem;
     display: flex;
     align-items: center;
@@ -82,6 +92,10 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+body.dark .calculator-list a {
+    color: #e0e0e0; /* Light text color for dark theme */
 }
 
 .calculator-list a i {
@@ -102,72 +116,121 @@
 
 /* Calculator list hover effect */
 .calculator-list a:hover {
-    background-color: #555; /* Hover effect */
+    background-color: #505050; /* Hover effect */
     padding-left: 1.2rem; /* Add padding on hover */
+}
+
+body.dark .calculator-list a:hover {
+    background-color: #606060; /* Dark theme hover effect */
 }
 
 /* Working area styling */
 .working-area {
     flex-grow: 1;
     padding: 2rem;
-    background-color: #f4f4f4;
-    overflow-y: auto; /* Allow vertical scrolling */
+    background-color: #f4f4f4; /* Default background for working area */
+    overflow-y: auto; /* Add scrolling for overflow content */
+    height: calc(100vh - 60px); /* Adjust height considering the navbar */
+    transition: margin-left 0.3s ease, background-color 0.3s ease;
 }
 
-/* Responsive styling */
+body.dark .working-area {
+    background-color: #333; /* Dark theme working area */
+    color: #ffffff; /* Light text color */
+}
+
+/* When sidebar is collapsed, adjust working area */
+.sidebar.active ~ .working-area {
+    margin-left: auto; /* Adjust when sidebar is collapsed */
+}
+
+body.dark .working-area {
+    background-color: #333; /* Dark theme working area */
+    color: #ffffff; /* Light text color */
+}
+
+/* Swipe Right Panel Styles */
+.swipe-right-panel {
+    position: fixed;
+    top: 0;
+    right: -300px; /* Initially off-screen */
+    width: 250px; /* Width of the swipe panel */
+    height: 100vh; /* Full height */
+    background-color: #ffffff; /* Default background color */
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    transition: right 0.3s ease; /* Smooth transition */
+    z-index: 1000; /* Ensure it's above other content */
+}
+
+body.dark .swipe-right-panel {
+    background-color: #444; /* Dark swipe panel background */
+}
+
+/* When the panel is visible */
+.swipe-right-panel.visible {
+    right: 0; /* Bring the panel into view */
+}
+
+/* Handle for swiping */
+.swipe-handle {
+    position: absolute;
+    top: 20px; /* Distance from the top */
+    left: -30px; /* Handle protruding from the side */
+    width: 30px; /* Handle width */
+    height: 40px; /* Handle height */
+    background-color: #007bff; /* Handle color */
+    border-radius: 5px 0 0 5px; /* Rounded left side */
+    cursor: pointer; /* Cursor change on hover */
+}
+
+/* Mobile Calculator List Styles */
+.calculator-list-mobile {
+    list-style: none; /* Remove default list styles */
+    padding: 60px 10px 10px 10px; /* Padding for the list */
+    margin: 0; /* Reset margins */
+}
+
+.calculator-list-mobile li {
+    margin: 10px 0; /* Spacing between items */
+}
+
+.calculator-list-mobile a {
+    display: flex; /* Flex layout for icons and text */
+    align-items: center; /* Center items vertically */
+    padding: 15px; /* Spacing around the link */
+    text-decoration: none; /* Remove underline */
+    color: #333; /* Default text color */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Smooth background color change */
+}
+
+body.dark .calculator-list-mobile a {
+    color: #ffffff; /* Light text color in dark theme */
+}
+
+/* Active and Hover States */
+.calculator-list-mobile a:hover,
+.calculator-list-mobile a.active {
+    background-color: #007bff; /* Background color on hover and active */
+    color: white; /* Change text color on hover */
+}
+
+.calculator-list-mobile i {
+    margin-right: 10px; /* Space between icon and text */
+}
+
+/* Responsive design adjustments */
 @media (max-width: 768px) {
     .sidebar {
         display: none; /* Hide sidebar on mobile */
     }
 
-    .swipe-up-panel {
-        position: fixed;
-        bottom: -100%; /* Hidden initially */
-        left: 0;
-        width: 100%;
-        background-color: #333;
-        color: white;
-        padding: 1rem;
-        transition: bottom 0.4s ease;
-        border-radius: 15px 15px 0 0;
-        z-index: 100;
-    }
-
-    .swipe-up-panel.visible {
-        bottom: 0; /* Slide up */
-    }
-
-    .swipe-handle {
-        width: 60px;
-        height: 5px;
-        background-color: white;
-        border-radius: 2.5px;
-        margin: 0 auto 1rem;
+    .working-area {
+        margin-left: 0; /* No margin on mobile */
+        padding: 1rem; /* Adjust padding for mobile */
     }
 
     .calculator-list-mobile {
-        list-style: none;
-        padding: 0;
-        text-align: center;
-    }
-
-    .calculator-list-mobile li {
-        margin-bottom: 1rem;
-    }
-
-    .calculator-list-mobile a {
-        text-decoration: none;
-        color: white;
-        font-size: 1.2rem;
-    }
-
-    .calculator-list-mobile a i {
-        margin-right: 10px;
-        font-size: 1.4rem;
-    }
-}
-@media (min-width: 769px) {
-    .swipe-up-panel {
-        display: none; /* Hide swipe-up panel on desktop */
+        padding: 20px 10px; /* Adjust padding for mobile */
     }
 }

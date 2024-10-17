@@ -1,0 +1,14 @@
+/* src/index.css */
+
+/* Default light theme styles */
+body.light {
+    background-color: white;
+    color: black;
+}
+
+body.dark {
+    background-color: black;
+    color: white;
+}
+
+/* Add any additional styles you want for your application */

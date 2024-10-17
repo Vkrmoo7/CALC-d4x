@@ -9,10 +9,11 @@ import AgeCalculator from './components/calculators/AgeCalculator/AgeCalculator'
 import ExpenseManager from './components/calculators/ExpenseManager/ExpenseManager';
 import About from './pages/About/About';
 
+
 function App() {
   return (
     // Set the basename to match your GitHub repository name
-    <Router basename="/React-Calc">
+    <Router basename="/CALC-d4x">
       <Navbar />
       <div className="content">
         <Routes>

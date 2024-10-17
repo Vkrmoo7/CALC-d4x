@@ -1,80 +1,128 @@
+/* Show button container */
 .show-btn {
-    display: grid;
-    grid-template-columns: auto auto auto auto auto;
-    background-color: white;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  background-color: white; /* Light theme background */
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition for theme changes */
+}
+
+body.dark .show-btn {
+  background-color: #444; /* Dark theme background */
+}
+
+/* Background color for the app */
+body {
+  background-color: #f0f0f0; /* Light theme background */
+  transition: background-color 0.3s ease; /* Smooth transition for background */
+}
+
+body.dark {
+  background-color: #333; /* Dark theme background */
+}
+
+/* Button styles */
+.btn {
+  width: 60px;
+  height: 60px;
+  margin: 6px auto;
+  font-size: 24px;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 50%;
+  background: none;
+  color: #080808;
+  border: 0;
+  user-select: none;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions for button states */
+}
+
+body.dark .btn {
+  color: white; /* Light text for dark theme */
+}
+
+.btn:last-child {
+  font-weight: medium;
+  font-size: 40px;
+  width: 110px;
+  height: 50px;
+  border-radius: 10px;
+  color: white; /* Last button text color */
+  background-color: #6dd5ed; /* Light theme color */
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+body.dark .btn:last-child {
+  background-color: #007bff; /* Dark theme color for last button */
+}
+
+/* Clear button color */
+.clr {
+  color: #d66d75; /* Light theme color */
+}
+
+body.dark .clr {
+  color: #ff4c4c; /* Dark theme color */
+}
+
+/* Expert button color */
+.exp {
+  color: #06beb6; /* Light theme color */
+}
+
+body.dark .exp {
+  color: #1cc88a; /* Dark theme color */
+}
+
+/* Button hover and active states */
+@media (min-width: 800px) {
+  .btn:hover {
+    background-color: #6dd5ed; /* Light theme hover */
+    color: white; /* Text color on hover */
   }
-  
-  @media (min-width: 800px) {
-    .show-btn {
-      border-bottom-left-radius: 10px;
-      border-bottom-right-radius: 10px;
-    }
+
+  body.dark .btn:hover {
+    background-color: #0056b3; /* Dark theme hover */
   }
-  
+
+  .btn:active,
+  .btn.touched {
+    background-color: #48b1bf; /* Active state color */
+    color: white; /* Text color */
+  }
+
+  body.dark .btn:active,
+  body.dark .btn.touched {
+    background-color: #004494; /* Dark theme active color */
+  }
+
+  .btn:active {
+    transform: scale(0.9); /* Scale down on active */
+  }
+
+  .btn.touched {
+    pointer-events: none; /* Disable pointer events */
+  }
+}
+
+/* Headings Styles */
+h1, h2, h3 {
+  color: #080808; /* Default color for headings in light mode */
+  transition: color 0.3s ease; /* Smooth transition for theme change */
+}
+
+body.dark h1, body.dark h2, body.dark h3 {
+  color: #eee; /* Lighter color for headings in dark mode */
+}
+
+/* Responsive adjustments */
+@media (min-width: 800px) {
+  .show-btn {
+    border-bottom-left-radius: 10px; /* Rounded corners for larger screens */
+    border-bottom-right-radius: 10px;
+  }
+
   .equal {
-    grid-column-start: 4;
+    grid-column-start: 4; /* Positioning for equal button */
     grid-column-end: 6;
   }
-  
-  .btn:last-child {
-    font-weight: medium;
-    font-size: 40px;
-    width: 110px;
-    height: 50px;
-    border-radius: 10px;
-    color: white;
-    background-color: #6dd5ed;
-  }
-  
-  .clr {
-    color: #d66d75;
-  }
-  
-  .exp {
-    color: #06beb6;
-  }
-  
-  .btn {
-    width: 60px;
-    height: 60px;
-    margin: 6px auto;
-    font-size: 24px;
-    font-weight: 500;
-    cursor: pointer;
-    border-radius: 50%;
-    background: none;
-    border: 0px;
-    user-select: none;
-  }
-  
-  @media (min-width: 800px) {
-    .btn:hover {
-      background-color: #6dd5ed;
-      color: white;
-      transition: background-color 0.3s ease;
-      border-radius: 50%;
-    }
-  
-    .btn:active,
-    .btn.touched {
-      background-color: #48b1bf;
-      color: white;
-      transition: background-color 0.3s ease;
-      border-radius: 50%;
-    }
-  
-    .btn:active {
-      transform: scale(0.9);
-    }
-  
-    .btn.touched {
-      pointer-events: none;
-    }
-  }
-  
-  @media (max-width: 800px) {
-    .btn:active {
-      transform: scale(0.9);
-    }
-  }
-  
+}
